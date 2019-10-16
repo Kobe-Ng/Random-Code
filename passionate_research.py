@@ -2,7 +2,13 @@
 This code runs a simulation to determine whether for the game 100% Orange juice.
 It attempts to determine whether or not adding the card "passionate research" to the deck
 changes the amount of hypers drawn by any particular player.
+
+After running the simulation the model suggests that
+adding passionate research to the deck does not
+change the number of hypers any player should expect to get.
 """
+
+
 
 import numpy as np
 
