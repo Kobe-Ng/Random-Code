@@ -1,8 +1,14 @@
+"""
+This code runs a simulation to determine whether for the game 100% Orange juice.
+It attempts to determine whether or not adding the card "passionate research" to the deck
+changes the amount of hypers drawn by any particular player.
+"""
+
 import numpy as np
 
 # determies frequency of player drawing
-player_drawrates = [1.2, 1.0, 1.0, 1.0]
-cards_drawn_until_game_end = 36
+player_drawrates = [5.0, 1.0, 1.0, 1.0]
+cards_drawn_until_game_end = 48
 trials = 50000
 
 
@@ -40,9 +46,7 @@ def simulate_draws(draw_probabilities, passionates_in_deck, cards_drawn_until_ga
     draw_order = list(np.random.choice(
         4, 48, p=draw_probabilities))
 
-    while True:
-        if len(Deck) <= 48 - cards_drawn_until_game_end:
-            break
+    while len(Deck) > 48 - cards_drawn_until_game_end:
         # Determine which player is drawing, and the card drawn.
         player_drawing = draw_order[0]
         draw_order.pop(0)
@@ -67,9 +71,9 @@ for _ in range(0, trials):
     no_pr_hyper_rate = no_pr_hyper_rate + \
         simulate_draws(draw_probabilities, 0, cards_drawn_until_game_end)
     one_pr_hyper_count = one_pr_hyper_count + \
-        simulate_draws(draw_probabilities, 1, cards_drawn_until_game_end)
+        simulate_draws(draw_probabilities, 4, cards_drawn_until_game_end)
 
 no_pr_hyper_rate = no_pr_hyper_rate / trials
 one_pr_hyper_rate = one_pr_hyper_count / trials
-print("With no pr, the average hypers distribution is:", no_pr_hyper_rate)
-print("With one pr, the average hyper distribution is:", one_pr_hyper_rate)
+print("With no pr in the deck, the average hypers distribution is:", no_pr_hyper_rate)
+print("With 4 pr in the deck, the average hyper distribution is:", one_pr_hyper_rate)
