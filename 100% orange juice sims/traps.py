@@ -1,3 +1,13 @@
+"""
+This code tests the probability that you will
+land on a placed trap given a certain starting
+distance from the trap.
+
+The probability increases from 16% to 36% from
+distances 1-6, and then average out to about 28%
+from far away.
+"""
+
 import numpy as np
 from matplotlib import pyplot as plt
 from functools import reduce
