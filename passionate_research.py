@@ -9,7 +9,6 @@ change the number of hypers any player should expect to get.
 """
 
 
-
 import numpy as np
 
 # determies frequency of player drawing
