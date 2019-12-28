@@ -73,9 +73,9 @@ no_pr_hyper_rate = 0
 one_pr_hyper_count = 0
 
 for _ in range(0, trials):
-    no_pr_hyper_rate = no_pr_hyper_rate + \
+    no_pr_hyper_rate = no_pr_hyper_rate +
         simulate_draws(draw_probabilities, 0, cards_drawn_until_game_end)
-    one_pr_hyper_count = one_pr_hyper_count + \
+    one_pr_hyper_count = one_pr_hyper_count +
         simulate_draws(draw_probabilities, 4, cards_drawn_until_game_end)
 
 no_pr_hyper_rate = no_pr_hyper_rate / trials
